@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['username']))
+{
+?>
+
 <html>
 <head>
     <title>MVC</title>
@@ -9,3 +15,10 @@
     <p><?=$data['name']?> is <?=$data['mood']?></p>
 </body>
 </html>
+    <?php
+}
+else
+{
+    echo 'session not found';
+}
+?>
