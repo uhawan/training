@@ -7,7 +7,7 @@ $capsule->addConnection([
     'host' => 'localhost',
     'username' => 'root',
     'password' => '',
-    'database' => 'dbtry',
+    'database' => 'recordapp',
     'charset' => 'utf8',
     'collation' => 'utf8_general_ci',
     'prefix' => ''
