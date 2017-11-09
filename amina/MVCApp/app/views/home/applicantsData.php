@@ -2,8 +2,10 @@
 
 
 <h1>Applicants Record</h1>
-<a href="add data.php">
-    Add New Record</a>
+<?php
+    echo "<td><a href=\"addData\">Add New Record</a>"
+?>
+
 <br><br>
 <table border="1">
 
@@ -11,8 +13,8 @@
         <td>SR.No</td>
         <td>Name</td>
         <td>Father Name</td>
-        <td>Incidence Title</td>
-        <td>status</td>
+        <!--<td>Incidence Title</td>
+        <td>status</td>-->
         <td>Update|Delete</td>
 
     </tr>
@@ -28,9 +30,9 @@ $data->map(function ($data) {
         echo "<td>".$data['id']."</td>";
         echo "<td>".$data['name']."</td>";
         echo "<td>".$data['father_name']."</td>";
-        echo "<td>".$data['title']."</td>";
-        echo "<td>".$data['status']."</td>";
-        echo "<td><a href=\"update.php?id=$data[id]\">Update</a> | <a href=\"delete.php?id=$data[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+        /*echo "<td>".$data['title']."</td>";
+        echo "<td>".$data['status']."</td>";*/
+        echo "<td><a href=\"updateData?id=$data[id]\">Update</a> | <a href=\"deleteData?id=$data[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
 });
     ?>
 

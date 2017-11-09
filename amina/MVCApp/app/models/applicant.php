@@ -3,7 +3,8 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Applicant extends Eloquent
 {
-   // protected $fillable = ['name','father_name'];
+    public $timestamps = false;
+    public $fillable = ['name','father_name','cnic','gender','country','province','districts','address','created_on','updated_on','status','incidence_id'];
     public $id;
     public $name;
     public $fathername;
@@ -21,7 +22,7 @@ class Applicant extends Eloquent
 
     public function incidences()
     {
-        return $this->hasMany('MVCApp\app\models\incidence.php');
+        return $this->hasMany('\app\models\incidence');
     }
 
 }
