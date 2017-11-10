@@ -2,51 +2,43 @@
 /**
  * Created by PhpStorm.
  * User: Akhuwat
- * Date: 11/9/2017
- * Time: 3:37 PM
+ * Date: 11/10/2017
+ * Time: 10:12 AM
  */
-$arr =($_POST);
-print_r($arr);
-
-//die("we die here");
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+
+// include database and object file
 include_once '../config/database.php';
 include_once '../objects/applicants.php';
 
+// get database connection
 $database = new Database();
 $db = $database->getConnection();
 
+// prepare product object
 $applicants = new Applicants($db);
 
-
+// get product id
 $data = json_decode(file_get_contents("php://input"));
 
-// set product property values
-$applicants->name = $data->name;
-$applicants->father_name = $data->fname;
-$applicants->cnic = $data->cnic;
-$applicants->gender = $data->gender;
-$applicants->address = $data->address;
-$applicants->country = $data->countries;
-$applicants->province = $data->provinces;
-$applicants->districts = $data->districts;
+// set product id to be deleted
+$applicants->id = $data->id;
 
-
-
-if($applicants->create()){
+// delete the product
+if($applicants->delete()){
     echo '{';
-    echo '"message": "Applicants was created."';
+    echo '"message": "Applicants was deleted."';
     echo '}';
 }
 
-// if unable to create the product, tell the user
+// if unable to delete the product
 else{
     echo '{';
-    echo '"message": "Unable to create Applicants."';
+    echo '"message": "Unable to delete object."';
     echo '}';
 }

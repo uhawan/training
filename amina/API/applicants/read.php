@@ -17,6 +17,8 @@ $db = $database->getConnection();
 $applicants = new Applicants($db);
 
 $stmt = $applicants->read();
+//print_r($stmt);
+//die();
 $num = $stmt->rowCount();
 
 if($num>0){

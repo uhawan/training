@@ -15,20 +15,21 @@ $(document).ready(function(){
     app_html+="<td>Update|Delete</td>";
     app_html+="</tr>";
 
-    showProducts();
+    showApplicants();
 });
 
 
-function showProducts(){
+function showApplicants(){
     $.getJSON("http://localhost/api/applicants/read.php", function(data){
         $.each(data.records, function(key, val) {
+            var url = 'http://localhost/Api/updateData.html?id=';
             app_html+="<tr>";
             app_html+="<td>" + val.id + "</td>";
             app_html+="<td>" + val.name + "</td>";
             app_html+="<td>" + val.father_name + "</td>";
             app_html+="<td>" + val.title + "</td>";
             app_html+="<td>";
-            app_html+="<a href=\'updateData?id=$data[id]\'>Update</a> | <a href=\'deleteData?id=$data[id]\' onClick=\'return confirm('Are you sure you want to delete?')\'>Delete</a></td>";
+            app_html+="<a href="+url+ val.id +">Update</a> | <a href='' onclick='deleterecord(" + val.id + ")'>Delete</a></td>";
             $("#app").html(app_html);
         });
     });

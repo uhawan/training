@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+            <script src="app/assets/js/jquery-3.2.1.min.js"></script>
+            <script>
+                var thisURL = document.URL;
+                var thisNVP = new Array();
+                thisNVP = thisURL.split("?"); //This grabs all URL parameters
+                var nvpArray = thisNVP[1];
+                var idno=nvpArray[3]
+            </script>
+        </head>
+
+<body onload="updaterecord(idno)">
+
+<div id="updateData"></div>
+<script src="app/applicants/update_applicants.js"></script>
+
+</body>
+</html>
